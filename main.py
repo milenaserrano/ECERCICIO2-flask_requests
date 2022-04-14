@@ -24,15 +24,10 @@ def create():
 
 @app.route('/delete/<int:index>')
 def delete(index):
-  name = request.form.get('name')
-  email = request.form.get('email')  
-  phone = request.form.get('phone')
-  contacts[index]['name'] = name
-  contacts[index]['email'] = email
-  contacts[index]['phone'] = phone
+  contacts.pop(index)
   return redirect('/')
 
-@app.route('/update/<int:index>')
+@app.route('/update/<int:index>', methods=['POST'])
 def update(index):
   name = request.form.get('name')
   email = request.form.get('email')  
