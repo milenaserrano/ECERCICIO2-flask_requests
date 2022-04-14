@@ -33,10 +33,6 @@
           {% if item.complete == True %}
             <s>{{ item.name }}</s>
           {% else %}
-            <form 
-              action="/update/{{loop.index0}}"
-              method="POST"
-            >
               <input 
                 class="sul-text-field"
                 name="name"
@@ -61,7 +57,12 @@
           <a href="/delete/{{loop.index0}}">
             ❌
           </a>
+          <a href="/update/{{loop.index0}}">
+          deletar
+          </a>
         </li>
+
+
       {% endfor %}
     </ul>
   </div>
