@@ -22,6 +22,15 @@ def create():
   })
   return redirect('/')
 
+@app.route('/delete/<int:index>')
+def delete(index):
+  name = request.form.get('name')
+  email = request.form.get('email')  
+  phone = request.form.get('phone')
+  contacts[index]['name'] = name
+  contacts[index]['email'] = email
+  contacts[index]['phone'] = phone
+  return redirect('/')
 
 @app.route('/update/<int:index>')
 def update(index):
@@ -33,16 +42,6 @@ def update(index):
   contacts[index]['phone'] = phone
   return redirect('/')
 
-@app.route('/delete/<int:index>')
-def delete(index):
-  name = request.form.get('name')
-  email = request.form.get('email')  
-  phone = request.form.get('phone')
-  contacts[index]['name'] = name
-  contacts[index]['email'] = email
-  contacts[index]['phone'] = phone
-  return redirect('/')
-  
-# IMPORTANTE V
+# IMPORTANTE 
 if __name__ == '__main__':
   app.run(host='0.0.0.0', port=8080)
